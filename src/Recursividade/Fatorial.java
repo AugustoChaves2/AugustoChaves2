@@ -10,5 +10,6 @@ public class Fatorial {
 
         //Caso contrario, o metodo recursivo é chamado
         return num * fatorailRecursivo(num - 1);
+
     }
 }
