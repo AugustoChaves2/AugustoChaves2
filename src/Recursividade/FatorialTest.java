@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class FatorialTest {
 
     public static void main(String[] args) {
-        int numero;
+        double numero;
         numero = 4;
         Fatorial fatorial = new Fatorial();
         fatorial.fatorailRecursivo(numero);
