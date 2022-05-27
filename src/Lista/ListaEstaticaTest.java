@@ -1,6 +1,11 @@
 package Lista;
 
+import Estrutura.ArraysSort;
+
 import javax.swing.*;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 
 class ListaEstaticaTest<T> {
 
@@ -22,8 +27,6 @@ class ListaEstaticaTest<T> {
         JOptionPane.showMessageDialog(null, "Quantidade elementos: " + listaEstatica.getQuantidade());
         System.out.println("Pesquisar posição do elemento: " + listaEstatica.get(1));
         System.out.println("imprimir elementos: " + listaEstatica);
-
-
 
     }
 }

@@ -10,8 +10,8 @@ import java.util.List;
 
 public class ListaEstatica<T> {
 
-    public T[] elementos;
-    public int quantidade;
+    private T[] elementos;
+    private int quantidade;
 
 
     public ListaEstatica(int tamanho) {

@@ -1,4 +1,4 @@
-package Lista.Turma;
+package Estrutura.Turma;
 
 import javax.swing.*;
 import java.util.ArrayList;
