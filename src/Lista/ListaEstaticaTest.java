@@ -30,6 +30,8 @@ class ListaEstaticaTest<T> {
         // listaEstatica.removerInicio();
         listaEstatica.removerFim();
         System.out.println("imprimir elementos: " + listaEstatica);
+        listaEstatica.removerFim();
+        System.out.println("imprimir elementos: " + listaEstatica);
         //JOptionPane.showMessageDialog(null, "Quantidade elementos: " + listaEstatica.getQuantidade());
         //JOptionPane.showMessageDialog(null, "Remover Numero: " + listaEstatica.remover(2));
         //JOptionPane.showMessageDialog(null, "Quantidade elementos: " + listaEstatica.getQuantidade());

@@ -1,11 +1,7 @@
 package Lista;
 
-import groovy.json.JsonOutput;
-
-import javax.swing.*;
 import java.util.Arrays;
 import java.util.Iterator;
-import java.util.List;
 
 
 public class ListaEstatica<T> {
@@ -77,11 +73,12 @@ public class ListaEstatica<T> {
         return aux;
     }
 
-    public T removerFim() throws ListaVaziaException {
-        T aux = null;
+    public Integer removerFim() throws ListaVaziaException {
         Integer valor;
+        valor = this.quantidade;
+        valor--;
         if (this.isVazia()) throw new ListaVaziaException();
-        valor = this.quantidade - 1;
+        --this.quantidade;
 
         for (int i = this.quantidade; i < this.elementos.length; --i) {
             this.elementos[i] = this.elementos[i + 1];
@@ -90,7 +87,7 @@ public class ListaEstatica<T> {
             }
 
         }
-        return aux;
+        return valor;
     }
 
     public T limparLista() throws ListaVaziaException {
