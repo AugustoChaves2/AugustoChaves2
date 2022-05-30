@@ -20,8 +20,9 @@ public class ListaEstatica<T> {
 
     }
 
-    public boolean isVazia() {
+    public boolean isVazia() throws ListaVaziaException {
         return this.quantidade == 0;
+
     }
 
     public boolean isCheia() {
@@ -55,8 +56,7 @@ public class ListaEstatica<T> {
     }
 
     public Iterator<T> get() {
-        @SuppressWarnings("unchecked")
-        T[] temp = (T[]) new Object[this.getQuantidade()];
+        @SuppressWarnings("unchecked") T[] temp = (T[]) new Object[this.getQuantidade()];
         for (int i = 0; i < this.quantidade; i++) temp[i] = this.elementos[i];
         return Arrays.asList(temp).iterator();
     }
@@ -72,15 +72,40 @@ public class ListaEstatica<T> {
         if (this.isVazia()) throw new ListaVaziaException();
         aux = this.elementos[0];
         --this.quantidade;
-        for (int i = 0; i < this.quantidade; ++i)
+        for (int i = 0; i <= this.quantidade; ++i)
             this.elementos[i] = this.elementos[i + 1];
         return aux;
     }
 
-    public T removerFim(int i) throws ListaVaziaException {
+    public T removerFim() throws ListaVaziaException {
+        T aux = null;
+        Integer valor;
         if (this.isVazia()) throw new ListaVaziaException();
-        return this.elementos[--this.quantidade];
+        valor = this.quantidade - 1;
 
+        for (int i = this.quantidade; i < this.elementos.length; --i) {
+            this.elementos[i] = this.elementos[i + 1];
+            if (valor == i) {
+                break;
+            }
+
+        }
+        return aux;
+    }
+
+    public T limparLista() throws ListaVaziaException {
+        T aux;
+        if (this.isVazia()) throw new ListaVaziaException();
+        aux = this.elementos[quantidade];
+
+        for (int i = this.quantidade; i < this.elementos.length; --i) {
+            this.elementos[i] = this.elementos[i + 1];
+            if (i == 0) {
+                break;
+            }
+
+        }
+        return aux;
     }
 
     public Object remover(T elementos) throws ElementoNaoExisteException {
