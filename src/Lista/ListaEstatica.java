@@ -1,7 +1,8 @@
 package Lista;
 
-import java.util.Arrays;
-import java.util.Iterator;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.*;
 
 
 public class ListaEstatica<T> {
@@ -39,6 +40,16 @@ public class ListaEstatica<T> {
 
     }
 
+    public Integer Ordenar() {
+        T aux = null;
+        for (int i = this.quantidade; i <= this.elementos.length; ++i)
+
+
+            this.elementos[i] = this.elementos[i + 1];
+        return null;
+
+    }
+
 
     public void inserirFim(T novo) {
         if (this.isCheia()) {
@@ -50,6 +61,7 @@ public class ListaEstatica<T> {
         }
         this.elementos[this.quantidade++] = novo;
     }
+
 
     public Iterator<T> get() {
         @SuppressWarnings("unchecked") T[] temp = (T[]) new Object[this.getQuantidade()];
@@ -115,7 +127,6 @@ public class ListaEstatica<T> {
         --this.quantidade;
         return elementos;
     }
-
 
     @Override
     public String toString() {
