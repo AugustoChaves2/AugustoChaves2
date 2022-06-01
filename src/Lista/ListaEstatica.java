@@ -40,17 +40,6 @@ public class ListaEstatica<T> {
 
     }
 
-    public Integer Ordenar() {
-        T aux = null;
-        for (int i = this.quantidade; i <= this.elementos.length; ++i)
-
-
-            this.elementos[i] = this.elementos[i + 1];
-        return null;
-
-    }
-
-
     public void inserirFim(T novo) {
         if (this.isCheia()) {
             try {
