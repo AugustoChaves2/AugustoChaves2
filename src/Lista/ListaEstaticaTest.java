@@ -1,7 +1,5 @@
 package Lista;
 
-import java.util.Collections;
-
 class ListaEstaticaTest<T> {
 
     public static void main(String[] args) throws ListaVaziaException, ElementoNaoExisteException, ListaCheiaException {
@@ -15,6 +13,7 @@ class ListaEstaticaTest<T> {
         listaEstatica.inserirFim(4);
         listaEstatica.inserirFim(9);
         listaEstatica.inserirFim(2);
+        //listaEstatica.get(3);
 
         System.out.println("imprimir elementos: " + listaEstatica);
         listaEstatica.removerInicio();
@@ -22,13 +21,14 @@ class ListaEstaticaTest<T> {
         System.out.println("imprimir elementos: " + listaEstatica);
         listaEstatica.removerFim();
         System.out.println("imprimir elementos: " + listaEstatica);
+        //System.out.println("Pesquisar posição do elemento: " + listaEstatica.get(5));
         System.out.println("imprimir elementos: " + listaEstatica);
         //JOptionPane.showMessageDialog(null, "Quantidade elementos: " + listaEstatica.getQuantidade());
         //JOptionPane.showMessageDialog(null, "Remover Numero: " + listaEstatica.remover(2));
         //JOptionPane.showMessageDialog(null, "Quantidade elementos: " + listaEstatica.getQuantidade());
         //JOptionPane.showMessageDialog(null, "Remover Numero: " + listaEstatica.remover(4));
         // JOptionPane.showMessageDialog(null, "Quantidade elementos: " + listaEstatica.getQuantidade());
-        //System.out.println("Pesquisar posição do elemento: " + listaEstatica.get(1));
+        System.out.println("Pesquisar posição do elemento: " + listaEstatica.get(5));
         //System.out.println("imprimir elementos: " + listaEstatica);
 
     }

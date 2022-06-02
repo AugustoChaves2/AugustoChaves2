@@ -1,8 +1,7 @@
 package Lista;
 
-import org.jetbrains.annotations.NotNull;
-
-import java.util.*;
+import java.util.Arrays;
+import java.util.Iterator;
 
 
 public class ListaEstatica<T> {
@@ -56,12 +55,14 @@ public class ListaEstatica<T> {
         @SuppressWarnings("unchecked") T[] temp = (T[]) new Object[this.getQuantidade()];
         for (int i = 0; i < this.quantidade; i++) temp[i] = this.elementos[i];
         return Arrays.asList(temp).iterator();
+        //posição do elemento
     }
 
     public Integer get(T elementos) throws ElementoNaoExisteException {
         for (int i = 0; i < this.quantidade; ++i)
             if (this.elementos[i].equals(elementos)) return i;
         throw new ElementoNaoExisteException();
+        //posicão do elemento
     }
 
     public T removerInicio() throws ListaVaziaException {

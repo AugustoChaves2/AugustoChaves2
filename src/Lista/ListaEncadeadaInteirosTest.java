@@ -1,14 +1,8 @@
 package Lista;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
-
 class ListaEncadeadaInteirosTest {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ElementoNaoExisteException {
         ListaEncadeadaInteiros listaEncadeadaInteiros = new ListaEncadeadaInteiros();
         listaEncadeadaInteiros.criarLista();
         listaEncadeadaInteiros.addOrdenado(45);
@@ -16,8 +10,9 @@ class ListaEncadeadaInteirosTest {
         listaEncadeadaInteiros.addOrdenado(1);
         listaEncadeadaInteiros.addOrdenado(32);
         listaEncadeadaInteiros.addOrdenado(23);
-        //listaEncadeadaInteiros.remove(1);
+        listaEncadeadaInteiros.remove(1);
         listaEncadeadaInteiros.exibir();
+        listaEncadeadaInteiros.buscaElemento(32);
         //listaEncadeadaInteiros.limparLista();
         //listaEncadeadaInteiros.exibir();
 

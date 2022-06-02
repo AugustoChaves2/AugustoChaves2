@@ -1,9 +1,5 @@
 package Lista;
 
-import groovy.json.JsonOutput;
-
-import java.util.Arrays;
-
 public class ListaEncadeadaInteiros {
     private Nodo prim;
 
@@ -27,14 +23,22 @@ public class ListaEncadeadaInteiros {
         prim = novo;
     }
 
+
     // Buscar Elemento
-    public Nodo buscaElemento(int i) {
-        for (Nodo n = prim; n != null; n = n.getProx()) {
-            if (n.getInfo() == i) {
-                return n;
+    public Nodo buscaElemento(int i) throws ElementoNaoExisteException {
+        Nodo p = prim;
+        if (prim != null) {
+            while (p != null && p.getInfo() != i) {
+                p = p.getProx();
+
             }
+            System.out.println("Elemento encontrado: " + p.getInfo());
+        } else {
+            throw new ElementoNaoExisteException();
+
         }
-        return null;
+
+        return p;
     }
 
     public void addOrdenado(int i) {
@@ -116,7 +120,7 @@ public class ListaEncadeadaInteiros {
         }
     }
 
-   }
+}
 
 
 
