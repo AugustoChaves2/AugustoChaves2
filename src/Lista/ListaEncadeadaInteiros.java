@@ -41,7 +41,35 @@ public class ListaEncadeadaInteiros {
         return p;
     }
 
-    public void addOrdenado(int i) {
+    public void addOrdenadoCres(int i) {
+        Nodo novo;
+
+        // Move elemento para anterior
+        Nodo anterior = null;
+        // Percore a lista
+        Nodo p = prim;
+
+        // Procurar elemento na lista
+        while (p != null && p.getInfo() > i) {
+            anterior = p;
+            p = p.getProx();
+        }
+
+        // Cria novo elemento
+        novo = new Nodo();
+        novo.setInfo(i);
+
+        //Encadeia novo elemento
+        if (anterior == null) { // Insere no inicio
+            novo.setProx(prim);
+            prim = novo;
+        } else { // Insere no meio da lista
+            novo.setProx(anterior.getProx());
+            anterior.setProx(novo);
+        }
+    }
+
+    public void addOrdenadoDecres(int i) {
         Nodo novo;
 
         // Move elemento para anterior
