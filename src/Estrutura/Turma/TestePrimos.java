@@ -1,4 +1,4 @@
-package Estrutura;
+package Estrutura.Turma;
 
 public class TestePrimos {
 

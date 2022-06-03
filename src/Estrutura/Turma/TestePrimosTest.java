@@ -1,4 +1,4 @@
-package Estrutura;
+package Estrutura.Turma;
 
 class TestePrimosTest {
     public static void main(String[] args) {

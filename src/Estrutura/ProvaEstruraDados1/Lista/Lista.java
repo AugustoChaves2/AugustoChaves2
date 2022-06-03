@@ -1,15 +1,13 @@
-package Estrutura.ProvaAv1;
+package Estrutura.ProvaEstruraDados1.Lista;
 
 public abstract class Lista<T extends Comparable> {
 
 
-    public abstract boolean vazia() throws ListaVaziaException;
+    public void Lista() {
 
-    public abstract boolean cheia() throws ListaCheiaException;
+    }
 
-    public abstract int getQuantidade(int i);
-
-    public abstract void incluir(T elemento) throws Exception, ListaCheiaException;
+    public abstract void incluir(T elemento) throws Exception;
 
     /**
      * Adiciona um elemento no final da lista
@@ -19,7 +17,7 @@ public abstract class Lista<T extends Comparable> {
      * @throws Exception
      */
 
-    public abstract void incluirInicio(T elemento) throws Exception, ListaCheiaException;
+    public abstract void incluirInicio(T elemento) throws Exception;
 
     /**
      * Adiciona um elemento no início da lista
@@ -35,11 +33,12 @@ public abstract class Lista<T extends Comparable> {
      * Adiciona um elemento em uma posição específica da lista
      * O(n)
      *
-     * @param i
+     * @param elemento
+     * @param posicao
      * @throws Exception
      */
 
-    public abstract T get(int i) throws Exception, ElementoNaoExisteException;
+    public abstract T get(int posicao) throws Exception;
 
     /**
      * Retorna o elemento que está na posição
@@ -49,11 +48,8 @@ public abstract class Lista<T extends Comparable> {
      * @return
      * @throws Exception
      */
-    protected abstract Object assertThat(Integer integer);
 
-    protected abstract void assertThat(Integer i, Object equalTo);
-
-    public abstract int getPosElemento(T elemento) throws Exception, ElementoNaoExisteException;
+    public abstract int getPosElemento(T elemento) throws Exception;
 
     /**
      * Retorna a posição do elemento
@@ -64,7 +60,7 @@ public abstract class Lista<T extends Comparable> {
      * @throws Exception
      */
 
-    public abstract void remover(T elemento) throws Exception;
+    public abstract void remover(int posicao) throws Exception;
 
     /**
      * Remove o elemento da posição
@@ -74,28 +70,14 @@ public abstract class Lista<T extends Comparable> {
      * @throws Exception
      */
 
-    public abstract Integer removerFim() throws ListaVaziaException;
-
-    /**
-     * Remove elemento fim
-     */
-
-    public abstract T removerInicio() throws ListaVaziaException;
-
-    /**
-     * Remove elemento inicio
-     *
-     * @return
-     */
-
-    public abstract void limpar() throws ListaVaziaException;
+    public abstract void limpar();
 
     /**
      * Remove todos os elementos da lista.
      * O(1)
      */
 
-    public abstract int getTamanho() throws ListaVaziaException;
+    public abstract int getTamanho();
 
     /**
      * Retorna a quantidade de elementos na lista
@@ -104,7 +86,7 @@ public abstract class Lista<T extends Comparable> {
      * @return
      */
 
-    public abstract boolean contem(T elemento) throws Exception, ElementoNaoExisteException;
+    public abstract boolean contem(T elemento) throws Exception;
     /**
      * Indica se contém ou não o elemento na lista
      * O(n)
@@ -112,5 +94,4 @@ public abstract class Lista<T extends Comparable> {
      * @return
      * @throws Exception
      */
-
 }
