@@ -53,6 +53,9 @@ public class ListaEncOrdenada<T extends Comparable<T>> extends ListaEnc<T> {
 
     public void incluirOrdenadoCres(T elemento){
         No<T> novo = new No<T>(elemento);
+        novo.setDado(elemento);
+
+
 
 
     }

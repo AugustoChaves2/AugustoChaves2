@@ -1,11 +1,16 @@
 package Lista;
 
+import static java.lang.System.exit;
+
 public class ListaEncadeadaInteiros {
     private Nodo prim;
+    private Nodo posicao;
+    private int tamanho;
 
 
     public void criarLista() {
         prim = null;
+
     }
 
     public boolean listaVazia() {
@@ -16,32 +21,21 @@ public class ListaEncadeadaInteiros {
     }
 
     // Inserir no inicio
-    public void add(int i) {
+    public void incluirInicio(int i) {
         Nodo novo = new Nodo();
+        novo.setInicio(i);
         novo.setInfo(i);
         novo.setProx(prim);
         prim = novo;
+        tamanho++;
+
     }
 
-
-    // Buscar Elemento
-    public Nodo buscaElemento(int i) throws ElementoNaoExisteException {
-        Nodo p = prim;
-        if (prim != null) {
-            while (p != null && p.getInfo() != i) {
-                p = p.getProx();
-
-            }
-            System.out.println("Elemento encontrado: " + p.getInfo());
-        } else {
-            throw new ElementoNaoExisteException();
-
-        }
-
-        return p;
+    public int getTamanho() {
+        return tamanho;
     }
 
-    public void addOrdenadoCres(int i) {
+    public void incluir(int i, int posicao) {
         Nodo novo;
 
         // Move elemento para anterior
@@ -50,7 +44,7 @@ public class ListaEncadeadaInteiros {
         Nodo p = prim;
 
         // Procurar elemento na lista
-        while (p != null && p.getInfo() > i) {
+        while (p != null && p.getInfo() == posicao) {
             anterior = p;
             p = p.getProx();
         }
@@ -67,9 +61,78 @@ public class ListaEncadeadaInteiros {
             novo.setProx(anterior.getProx());
             anterior.setProx(novo);
         }
+
+        tamanho++;
     }
 
-    public void addOrdenadoDecres(int i) {
+
+    // Buscar Elemento
+    public Nodo getElemento(int i) throws ElementoNaoExisteException {
+        Nodo p = this.prim;
+        int aux = 1;
+
+
+        if (prim != null) {
+            while (aux <= tamanho) {
+                p = p.getProx();
+                aux++;
+                if (p.getInfo() == i) {
+                    System.out.println("Elemento encontrado: " + p.getInfo());
+                    exit(0);
+                }
+            }
+            if (p.getInfo() == i) {
+                System.out.println("Elemento encontrado: " + p.getInfo());
+                exit(0);
+            }
+
+            throw new ElementoNaoExisteException();
+        }
+        else throw new ElementoNaoExisteException();
+    }
+
+
+    // Buscar Posicao
+    public int get(int posicao) throws ElementoNaoExisteException {
+        Nodo p = this.prim;
+        int aux = 0;
+        if (this.prim != null) {
+            while (p != null && p.getInfo() != posicao) {
+                p = p.getProx();
+                aux++;
+                if (p.getInfo() == posicao) {
+                    System.out.println("Posição elemento: " + aux);
+                    exit(0);
+                }
+            }
+
+        } else {
+            throw new ElementoNaoExisteException();
+
+        }
+
+        return aux;
+    }
+
+    public boolean contem(int i) throws ElementoNaoExisteException {
+        Nodo p = prim;
+        Nodo aux1 = null;
+        int aux = 0;
+        if (prim != null) {
+            while (p != null && p.getInicio() != i) {
+                p = p.getProx();
+            }
+            System.out.println("Elemento encontrado: " + true);
+        } else {
+            throw new ElementoNaoExisteException();
+
+        }
+
+        return true;
+    }
+
+
+    public void incluirOrdenadoCres(int i) {
         Nodo novo;
 
         // Move elemento para anterior
@@ -95,9 +158,41 @@ public class ListaEncadeadaInteiros {
             novo.setProx(anterior.getProx());
             anterior.setProx(novo);
         }
+        tamanho++;
     }
 
-    public void remove(int i) {
+    public void incluirOrdenadoDecres(int i) {
+        Nodo novo;
+
+        // Move elemento para anterior
+        Nodo anterior = null;
+        Nodo ultimo = null;
+        // Percore a lista
+        Nodo p = prim;
+
+
+        // Procurar elemento na lista
+        while (p != null && p.getInfo() > i) {
+            anterior = p;
+            p = p.getProx();
+        }
+
+        // Cria novo elemento
+        novo = new Nodo();
+        novo.setInfo(i);
+
+        //Encadeia novo elemento
+        if (anterior == null) { // Insere no inicio
+            novo.setProx(prim);
+            prim = novo;
+        } else { // Insere no meio da lista
+            novo.setProx(anterior.getProx());
+            anterior.setProx(novo);
+        }
+        tamanho++;
+    }
+
+    public void remover(int i) {
 
         // Move o elemento para anterior
         Nodo anterior = null;
@@ -127,13 +222,15 @@ public class ListaEncadeadaInteiros {
         } else {
             anterior.setProx(p.getProx()); // Retira do meio da lista
         }
+        tamanho--;
     }
 
-    public void limparLista() {
+    public void limpar() {
         while (prim != null) {
             Nodo temp = prim.getProx();
             prim = null;
             prim = temp;
+            tamanho = 0;
         }
     }
 

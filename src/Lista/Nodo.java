@@ -3,8 +3,17 @@ package Lista;
 public class Nodo {
     private int info;
     private Nodo prox;
+    private int inicio;
 
-    public int getInfo(){
+    public int getInicio() {
+        return inicio;
+    }
+
+    public void setInicio(int inicio) {
+        this.inicio = inicio;
+    }
+
+    public int getInfo() {
         return info;
     }
 
