@@ -69,26 +69,19 @@ public class ListaEncadeadaInteiros {
     // Buscar Elemento
     public Nodo getElemento(int i) throws ElementoNaoExisteException {
         Nodo p = this.prim;
-        int aux = 1;
-
-
+        int aux = 0;
         if (prim != null) {
-            while (aux <= tamanho) {
-                p = p.getProx();
-                aux++;
+            while (aux != tamanho) {
                 if (p.getInfo() == i) {
                     System.out.println("Elemento encontrado: " + p.getInfo());
                     exit(0);
+                } else {
+                    p = p.getProx();
+                    aux++;
                 }
             }
-            if (p.getInfo() == i) {
-                System.out.println("Elemento encontrado: " + p.getInfo());
-                exit(0);
-            }
-
             throw new ElementoNaoExisteException();
-        }
-        else throw new ElementoNaoExisteException();
+        } else throw new ElementoNaoExisteException();
     }
 
 
@@ -96,39 +89,37 @@ public class ListaEncadeadaInteiros {
     public int get(int posicao) throws ElementoNaoExisteException {
         Nodo p = this.prim;
         int aux = 0;
-        if (this.prim != null) {
-            while (p != null && p.getInfo() != posicao) {
-                p = p.getProx();
-                aux++;
+        if (prim != null) {
+            while (aux != tamanho) {
                 if (p.getInfo() == posicao) {
-                    System.out.println("Posição elemento: " + aux);
+                    System.out.println("Posição do elemento encontrado: " + aux);
                     exit(0);
+                } else {
+                    p = p.getProx();
+                    aux++;
                 }
             }
-
-        } else {
             throw new ElementoNaoExisteException();
-
-        }
-
-        return aux;
+        } else throw new ElementoNaoExisteException();
     }
 
     public boolean contem(int i) throws ElementoNaoExisteException {
-        Nodo p = prim;
-        Nodo aux1 = null;
+        Nodo p = this.prim;
         int aux = 0;
+        boolean aux1 = false;
         if (prim != null) {
-            while (p != null && p.getInicio() != i) {
-                p = p.getProx();
+            while (aux != tamanho) {
+                if (p.getInfo() == i) {
+                    System.out.println("Elemento encontrado: " + true);
+                    exit(0);
+                } else {
+                    p = p.getProx();
+                    aux++;
+                }
             }
-            System.out.println("Elemento encontrado: " + true);
-        } else {
-            throw new ElementoNaoExisteException();
-
-        }
-
-        return true;
+            System.out.println("Elemento encontrado: " + false);
+        } else throw new ElementoNaoExisteException();
+        return aux1;
     }
 
 
