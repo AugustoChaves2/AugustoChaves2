@@ -13,9 +13,9 @@ class ListaEncadeadaInteirosTest {
         //listaEncadeadaInteiros.incluirOrdenadoDecres(23);
         //listaEncadeadaInteiros.remover(1);
         listaEncadeadaInteiros.exibir();
-        listaEncadeadaInteiros.getElemento(32);
+        //listaEncadeadaInteiros.get(45);
         // listaEncadeadaInteiros.getElemento(60);
-        // listaEncadeadaInteiros.contem(45);
+        listaEncadeadaInteiros.contem(42);
         //listaEncadeadaInteiros.limparLista();
         //listaEncadeadaInteiros.exibir();
 
